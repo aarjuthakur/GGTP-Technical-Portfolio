@@ -1,0 +1,66 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Test Results & Reports
+test-results/
+playwright-report/
+.playwright/
+playwright-traces/
+evidences/
+
+# Python Scripts (Helper files)
+*.py
+__pycache__/
+*.pyc
+
+# # Excel & Word Documentation (for submission, not code)
+# *.xlsx
+# *.docx
+# *.pdf
+
+# IDE & Editor
+.vscode/
+.idea/
+*.code-workspace
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temporary Files
+*.tmp
+*.temp
+.cache/
+
+# Documentation files (optional - include these if you want)
+# QUICK_START.md
+# README.md
+# INDEX.md
+# PROJECT_SUMMARY.md
+# TEST_EXECUTION_REPORT.md
+# JIRA_DOCUMENTATION.md
+# REQUIREMENTS_CHECKLIST.md
+# DELIVERY_SUMMARY.md
+# EXCEL_UPDATE_SUMMARY.md
+# COMPREHENSIVE_EXCEL_GUIDE.md
+# EXCEL_FILE_SUMMARY.txt
+# FILES_CREATED.md
+# FINAL_SUMMARY.txt
+# SUBMISSION_READY.txt
+# REQUIREMENTS_COMPLIANCE_CHECKLIST.md
+
+# Distribution
+dist/
+build/
+.claude/

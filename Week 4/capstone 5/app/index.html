@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customer Satisfaction Survey</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="form-shell">
+    <header class="form-header">
+      <h1 data-testid="form-title">Customer Satisfaction Survey</h1>
+      <p class="form-sub">Tell us about your experience so we can serve you better.</p>
+    </header>
+
+    <div class="progress">
+      <span data-testid="progress-text">Page 1 of 6</span>
+      <div class="bar-track"><span class="bar-fill" data-testid="progress-bar"></span></div>
+    </div>
+
+    <!-- ===================== PAGE 1 : WELCOME & DEMOGRAPHICS ===================== -->
+    <section class="page active" data-testid="page-1" data-page="1">
+      <h2 class="page-title">Welcome &amp; Demographics</h2>
+      <p class="welcome" data-testid="welcome-message">
+        Welcome! This short survey takes a few minutes. Your responses help us improve our
+        product and service.
+      </p>
+
+      <div class="question" data-qid="q1">
+        <label class="q-label" for="q1-name">What is your full name? <span class="req">*</span></label>
+        <input id="q1-name" data-testid="q1-name" type="text" minlength="3" maxlength="100" autocomplete="off" />
+        <p class="error" data-testid="error-q1" hidden>Please enter your name (3 to 100 characters).</p>
+      </div>
+
+      <div class="question" data-qid="q2">
+        <label class="q-label" for="q2-email">What is your email address?</label>
+        <input id="q2-email" data-testid="q2-email" type="email" autocomplete="off" />
+        <p class="error" data-testid="error-q2" hidden>Please enter a valid email address.</p>
+      </div>
+
+      <div class="question" data-qid="q3">
+        <label class="q-label" for="q3-company">What is your company name?</label>
+        <input id="q3-company" data-testid="q3-company" type="text" minlength="2" maxlength="100" autocomplete="off" />
+        <p class="error" data-testid="error-q3" hidden>Please enter your company name (2 to 100 characters).</p>
+      </div>
+
+      <div class="question" data-qid="q4">
+        <label class="q-label" for="q4-employees">How many employees work in your organization?</label>
+        <input id="q4-employees" data-testid="q4-employees" type="number" min="1" step="1" autocomplete="off" />
+        <p class="error" data-testid="error-q4" hidden>Please enter a number greater than 0.</p>
+      </div>
+    </section>
+
+    <!-- PAGE 2 -->
+    <section class="page" data-testid="page-2" data-page="2" hidden>
+      <h2 class="page-title">Product Usage</h2>
+
+      <div class="question" data-qid="q5">
+        <span class="q-label">How did you hear about us?</span>
+        <div class="options" data-testid="q5-source" role="radiogroup" aria-label="How did you hear about us">
+          <label><input type="radio" name="q5" data-testid="q5-source-word-of-mouth" value="Word of mouth" /> Word of mouth</label>
+          <label><input type="radio" name="q5" data-testid="q5-source-online-search" value="Online search" /> Online search</label>
+          <label><input type="radio" name="q5" data-testid="q5-source-social-media" value="Social media" /> Social media</label>
+          <label><input type="radio" name="q5" data-testid="q5-source-referral" value="Referral" /> Referral</label>
+        </div>
+        <p class="error" data-testid="error-q5" hidden>Please select an option.</p>
+      </div>
+
+      <div class="question" data-qid="q6">
+        <span class="q-label">Which features do you use? (Select all that apply)</span>
+        <div class="options" data-testid="q6-features" role="group" aria-label="Which features do you use">
+          <label><input type="checkbox" name="q6" data-testid="q6-feature-dashboard" value="Dashboard" /> Dashboard</label>
+          <label><input type="checkbox" name="q6" data-testid="q6-feature-reports" value="Reports" /> Reports</label>
+          <label><input type="checkbox" name="q6" data-testid="q6-feature-automation" value="Automation" /> Automation</label>
+          <label><input type="checkbox" name="q6" data-testid="q6-feature-integrations" value="Integrations" /> Integrations</label>
+        </div>
+        <p class="error" data-testid="error-q6" hidden>Please select at least one feature.</p>
+      </div>
+
+      <div class="question" data-qid="q7">
+        <span class="q-label">Rate your overall experience</span>
+        <div class="rating" data-testid="q7-rating" role="radiogroup" aria-label="Rate your overall experience">
+          <button type="button" class="star" data-testid="q7-star-1" data-value="1" aria-label="1 star">&#9733;</button>
+          <button type="button" class="star" data-testid="q7-star-2" data-value="2" aria-label="2 stars">★</button>
+          <button type="button" class="star" data-testid="q7-star-3" data-value="3" aria-label="3 stars">★</button>
+          <button type="button" class="star" data-testid="q7-star-4" data-value="4" aria-label="4 stars">★</button>
+          <button type="button" class="star" data-testid="q7-star-5" data-value="5" aria-label="5 stars">★</button>
+        </div>
+        <p class="error" data-testid="error-q7" hidden>Please select a rating.</p>
+      </div>
+
+      <div class="question" data-qid="q8">
+        <span class="q-label">How likely are you to recommend us to a friend or colleague? (0 = Not at all likely, 10 = Extremely likely)</span>
+        <div class="nps" data-testid="q8-nps" role="radiogroup" aria-label="How likely are you to recommend us">
+          <button type="button" data-testid="q8-nps-0" data-value="0" aria-label="NPS 0">0</button>
+          <button type="button" data-testid="q8-nps-1" data-value="1" aria-label="NPS 1">1</button>
+          <button type="button" data-testid="q8-nps-2" data-value="2" aria-label="NPS 2">2</button>
+          <button type="button" data-testid="q8-nps-3" data-value="3" aria-label="NPS 3">3</button>
+          <button type="button" data-testid="q8-nps-4" data-value="4" aria-label="NPS 4">4</button>
+          <button type="button" data-testid="q8-nps-5" data-value="5" aria-label="NPS 5">5</button>
+          <button type="button" data-testid="q8-nps-6" data-value="6" aria-label="NPS 6">6</button>
+          <button type="button" data-testid="q8-nps-7" data-value="7" aria-label="NPS 7">7</button>
+          <button type="button" data-testid="q8-nps-8" data-value="8" aria-label="NPS 8">8</button>
+          <button type="button" data-testid="q8-nps-9" data-value="9" aria-label="NPS 9">9</button>
+          <button type="button" data-testid="q8-nps-10" data-value="10" aria-label="NPS 10">10</button>
+        </div>
+        <p class="error" data-testid="error-q8" hidden>Please select a score from 0 to 10.</p>
+      </div>
+    </section>
+
+    <!-- PAGE 3 -->
+    <section class="page" data-testid="page-3" data-page="3" hidden>
+      <h2 class="page-title">Your Experience</h2>
+
+      <div class="branch" data-testid="branch-positive">
+        <div class="question" data-qid="q9">
+          <label class="q-label" for="q9-likes">What do you like most about our product?</label>
+          <textarea id="q9-likes" data-testid="q9-likes" rows="3" maxlength="1000"></textarea>
+          <p class="error" data-testid="error-q9" hidden>Please share what you like most (10 to 1000 characters).</p>
+        </div>
+
+        <div class="question" data-qid="q10">
+          <label class="q-label" for="q10-best-feature">Which feature do you value the most?</label>
+          <select id="q10-best-feature" data-testid="q10-best-feature">
+            <option value="">Select an option</option>
+            <option value="Dashboard">Dashboard</option>
+            <option value="Reports">Reports</option>
+            <option value="Automation">Automation</option>
+            <option value="Integrations">Integrations</option>
+          </select>
+          <p class="error" data-testid="error-q10" hidden>Please select a feature.</p>
+        </div>
+
+        <div class="question" data-qid="q11">
+          <label class="q-label" for="q11-purchase-date">When did you purchase?</label>
+          <input id="q11-purchase-date" data-testid="q11-purchase-date" type="date" />
+          <p class="error" data-testid="error-q11" hidden>Please select a valid date.</p>
+        </div>
+      </div>
+
+      <div class="branch" data-testid="branch-improvement" hidden>
+        <div class="question" data-qid="q9b">
+          <label class="q-label" for="q9b-why-not">Why are you not satisfied?</label>
+          <textarea id="q9b-why-not" data-testid="q9b-why-not" rows="3" maxlength="1000"></textarea>
+          <p class="error" data-testid="error-q9b" hidden>Please tell us why you are not satisfied (10 to 1000 characters).</p>
+        </div>
+
+        <div class="question" data-qid="q10b">
+          <span class="q-label">Rank what would improve your experience the most</span>
+          <ul class="ranking" data-testid="q10b-improve">
+            <li data-value="Ease of use" data-testid="q10b-item-ease-of-use">
+              <span class="rank-text">Ease of use</span>
+              <span class="rank-controls">
+                <button type="button" data-move="up" aria-label="Move Ease of use up">&#9650;</button>
+                <button type="button" data-move="down" aria-label="Move Ease of use down">&#9660;</button>
+              </span>
+            </li>
+            <li data-value="Performance" data-testid="q10b-item-performance">
+              <span class="rank-text">Performance</span>
+              <span class="rank-controls">
+                <button type="button" data-move="up" aria-label="Move Performance up">&#9650;</button>
+                <button type="button" data-move="down" aria-label="Move Performance down">&#9660;</button>
+              </span>
+            </li>
+            <li data-value="Support" data-testid="q10b-item-support">
+              <span class="rank-text">Support</span>
+              <span class="rank-controls">
+                <button type="button" data-move="up" aria-label="Move Support up">&#9650;</button>
+                <button type="button" data-move="down" aria-label="Move Support down">&#9660;</button>
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="question" data-qid="q11b">
+          <label class="q-label" for="q11b-contact-time">What is the best time to contact you?</label>
+          <input id="q11b-contact-time" data-testid="q11b-contact-time" type="time" />
+          <p class="error" data-testid="error-q11b" hidden>Please select a contact time.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 4 -->
+    <section class="page" data-testid="page-4" data-page="4" hidden>
+      <h2 class="page-title">Detailed Feedback</h2>
+
+      <div class="branch" data-testid="branch-promoter" hidden>
+        <div class="question" data-qid="q12">
+          <span class="q-label">Would you be interested in a case study?</span>
+          <div class="options" data-testid="q12-case-study" role="radiogroup" aria-label="Case study interest">
+            <label><input type="radio" name="q12" data-testid="q12-case-study-yes" value="Yes" /> Yes</label>
+            <label><input type="radio" name="q12" data-testid="q12-case-study-no" value="No" /> No</label>
+          </div>
+          <p class="error" data-testid="error-q12" hidden>Please select an option.</p>
+        </div>
+      </div>
+
+      <div class="branch" data-testid="branch-passive" hidden>
+        <div class="question" data-qid="q12b">
+          <label class="q-label" for="q12b-make-ten">What would make it a 10?</label>
+          <textarea id="q12b-make-ten" data-testid="q12b-make-ten" rows="3" maxlength="1000"></textarea>
+          <p class="error" data-testid="error-q12b" hidden>Please share your suggestion (10 to 1000 characters).</p>
+        </div>
+      </div>
+
+      <div class="branch" data-testid="branch-detractor" hidden>
+        <div class="question" data-qid="q12c">
+          <label class="q-label" for="q12c-upload">Upload a screenshot of the issue (optional)</label>
+          <input id="q12c-upload" data-testid="q12c-upload" type="file" accept="image/*,.pdf" />
+          <p class="error" data-testid="error-q12c" hidden>File type not allowed or file is too large.</p>
+        </div>
+
+        <div class="question" data-qid="q12d">
+          <label class="q-label" for="q12d-issue">Please describe the issue in detail</label>
+          <textarea id="q12d-issue" data-testid="q12d-issue" rows="3" maxlength="1000"></textarea>
+          <p class="error" data-testid="error-q12d" hidden>Please describe the issue (10 to 1000 characters).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 5 -->
+    <section class="page" data-testid="page-5" data-page="5" hidden>
+      <h2 class="page-title">Preferences &amp; Follow-up</h2>
+
+      <div class="question" data-qid="q15">
+        <span class="q-label">Would you like a follow-up from our team?</span>
+        <div class="options" data-testid="q15-follow-up" role="radiogroup" aria-label="Follow-up">
+          <label><input type="radio" name="q15" data-testid="q15-follow-up-yes" value="Yes" /> Yes</label>
+          <label><input type="radio" name="q15" data-testid="q15-follow-up-no" value="No" /> No</label>
+        </div>
+        <p class="error" data-testid="error-q15" hidden>Please select an option.</p>
+      </div>
+
+      <div class="branch" data-testid="branch-contact" hidden>
+        <div class="question" data-qid="q13">
+          <label class="q-label" for="q13-contact-method">Preferred contact method</label>
+          <select id="q13-contact-method" data-testid="q13-contact-method">
+            <option value="">Select an option</option>
+            <option value="Email">Email</option>
+            <option value="Phone">Phone</option>
+            <option value="Microsoft Teams">Microsoft Teams</option>
+          </select>
+          <p class="error" data-testid="error-q13" hidden>Please select a contact method.</p>
+        </div>
+
+        <div class="question" data-qid="q14">
+          <label class="q-label" for="q14-contact-time">Best time to contact you (optional)</label>
+          <input id="q14-contact-time" data-testid="q14-contact-time" type="time" />
+        </div>
+      </div>
+
+      <div class="question" data-qid="q16">
+        <span class="q-label">Rank our communication channels by preference</span>
+        <ul class="ranking" data-testid="q16-rank-channels">
+          <li data-value="Email" data-testid="q16-item-email">
+            <span class="rank-text">Email</span>
+            <span class="rank-controls">
+              <button type="button" data-move="up" aria-label="Move Email up">&#9650;</button>
+              <button type="button" data-move="down" aria-label="Move Email down">&#9660;</button>
+            </span>
+          </li>
+          <li data-value="Phone" data-testid="q16-item-phone">
+            <span class="rank-text">Phone</span>
+            <span class="rank-controls">
+              <button type="button" data-move="up" aria-label="Move Phone up">&#9650;</button>
+              <button type="button" data-move="down" aria-label="Move Phone down">&#9660;</button>
+            </span>
+          </li>
+          <li data-value="Microsoft Teams" data-testid="q16-item-teams">
+            <span class="rank-text">Microsoft Teams</span>
+            <span class="rank-controls">
+              <button type="button" data-move="up" aria-label="Move Microsoft Teams up">&#9650;</button>
+              <button type="button" data-move="down" aria-label="Move Microsoft Teams down">&#9660;</button>
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="question" data-qid="q17">
+        <span class="q-label">This product meets my needs</span>
+        <div class="likert" data-testid="q17-likert" role="radiogroup" aria-label="This product meets my needs">
+          <label><input type="radio" name="q17" data-testid="q17-likert-strongly-agree" value="Strongly agree" /> Strongly agree</label>
+          <label><input type="radio" name="q17" data-testid="q17-likert-agree" value="Agree" /> Agree</label>
+          <label><input type="radio" name="q17" data-testid="q17-likert-neutral" value="Neutral" /> Neutral</label>
+          <label><input type="radio" name="q17" data-testid="q17-likert-disagree" value="Disagree" /> Disagree</label>
+          <label><input type="radio" name="q17" data-testid="q17-likert-strongly-disagree" value="Strongly disagree" /> Strongly disagree</label>
+        </div>
+        <p class="error" data-testid="error-q17" hidden>Please select an option.</p>
+      </div>
+    </section>
+
+    <!-- PAGE 6 -->
+    <section class="page" data-testid="page-6" data-page="6" hidden>
+      <h2 class="page-title">Thank You</h2>
+      <p class="thank-you" data-testid="thank-you-message">Thank you for your time and feedback.</p>
+      <p class="thank-you-note" data-testid="thank-you-contact" hidden>We'll contact you soon.</p>
+      <p class="thank-you-note" data-testid="thank-you-feedback" hidden>Thank you for your feedback.</p>
+
+      <h3 class="summary-title">Summary of your responses</h3>
+      <ul class="summary" data-testid="thank-you-summary"></ul>
+
+      <div class="thank-actions">
+        <button type="button" class="btn-secondary" data-testid="btn-download">Download report</button>
+        <button type="button" class="btn-secondary" data-testid="btn-share">Share survey</button>
+      </div>
+    </section>
+
+    <!-- NAVIGATION -->
+    <div class="nav">
+      <button type="button" class="btn btn-secondary" data-testid="btn-back" hidden>Back</button>
+      <button type="button" class="btn btn-primary" data-testid="btn-next">Next</button>
+      <button type="button" class="btn btn-primary" data-testid="btn-submit" hidden>Submit</button>
+    </div>
+
+    <p class="status" data-testid="status-message" role="status" aria-live="polite" hidden></p>
+  </main>
+
+  <script src="survey.js"></script>
+</body>
+</html>

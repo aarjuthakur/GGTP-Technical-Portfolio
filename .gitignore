@@ -1,0 +1,12 @@
+node_modules/
+evidences/
+test-results/
+playwright-report/
+.env
+*.mp4
+*.zip
+*.rar
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db

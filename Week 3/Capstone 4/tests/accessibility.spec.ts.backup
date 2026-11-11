@@ -1,0 +1,36 @@
+import { test, expect } from '../fixtures/index';
+import { injectAxe, checkA11y } from 'axe-playwright';
+
+test('Accessibility: Verify no critical violations on HomePage', async ({ page }) => {
+  // Description: Run axe accessibility scanner on home page and verify no critical violations
+
+  await page.goto('https://automationexercise.com/');
+
+  // Inject axe
+  await injectAxe(page);
+
+  // Check for accessibility violations
+  await checkA11y(page, null, {
+    detailedReport: true,
+    detailedReportOptions: {
+      html: true
+    }
+  });
+});
+
+test('Accessibility: Verify no critical violations on LoginPage', async ({ page }) => {
+  // Description: Run axe accessibility scanner on login page and verify no critical violations
+
+  await page.goto('https://automationexercise.com/login');
+
+  // Inject axe
+  await injectAxe(page);
+
+  // Check for accessibility violations
+  await checkA11y(page, null, {
+    detailedReport: true,
+    detailedReportOptions: {
+      html: true
+    }
+  });
+});

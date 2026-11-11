@@ -1,0 +1,41 @@
+{
+  "name": "capstone-5",
+  "version": "1.0.0",
+  "description": "Playwright automation for a 6-page conditional customer satisfaction survey",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:smoke": "playwright test tests/smoke",
+    "test:functional": "playwright test tests/functional",
+    "test:conditional": "playwright test tests/conditional",
+    "test:validation": "playwright test tests/validation",
+    "test:e2e": "playwright test tests/e2e",
+    "test:cross-browser": "playwright test tests/cross-browser",
+    "test:responsive": "playwright test tests/responsive",
+    "test:chromium": "playwright test --project=chromium",
+    "test:firefox": "playwright test --project=firefox",
+    "test:webkit": "playwright test --project=webkit",
+    "test:mobile": "playwright test --project=mobile",
+    "test:tablet": "playwright test --project=tablet",
+    "test:live": "playwright test --project=live",
+    "test:data": "playwright test --project=live tests/datadriven",
+    "test:i18n": "playwright test --project=live tests/multilingual",
+    "test:regression": "playwright test --project=chromium tests/regression",
+    "test:integration": "playwright test --project=chromium tests/integration",
+    "test:debug": "playwright test --debug",
+    "typecheck": "tsc --noEmit",
+    "serve": "http-server ./app -p 4173 -c-1",
+    "report": "playwright show-report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "1.64.0",
+    "@types/node": "^22.10.0",
+    "glob": "^13.0.6",
+    "http-server": "^14.1.1",
+    "typescript": "^5.6.3"
+  }
+}

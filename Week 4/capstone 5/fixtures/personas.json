@@ -1,0 +1,142 @@
+[
+  {
+    "id": "DD-01",
+    "description": "Standard corporate respondent",
+    "name": "John Smith",
+    "email": "john.smith@example.com",
+    "company": "Acme Corp",
+    "employees": "250",
+    "expectValid": true,
+    "reason": "All Page 1 rules satisfied: name at least 3 characters, e-mail shape, numeric headcount"
+  },
+  {
+    "id": "DD-02",
+    "description": "Name exactly on the 3 character minimum",
+    "name": "Ana",
+    "email": "ana@contoso.com",
+    "company": "Contoso Ltd",
+    "employees": "1",
+    "expectValid": true,
+    "reason": "Boundary: name length 3 (minimum) and headcount 1 (minimum positive integer)"
+  },
+  {
+    "id": "DD-03",
+    "description": "Name one character below the minimum",
+    "name": "Jo",
+    "email": "jo@contoso.com",
+    "company": "Contoso Ltd",
+    "employees": "10",
+    "expectValid": false,
+    "reason": "Name length 2 - below the 3 character minimum"
+  },
+  {
+    "id": "DD-04",
+    "description": "Name exactly 100 characters long",
+    "name": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "email": "boundary@contoso.com",
+    "company": "Boundary Corp",
+    "employees": "999",
+    "expectValid": true,
+    "reason": "Accepted: 100 characters is comfortably above the published 3-character minimum"
+  },
+  {
+    "id": "DD-05",
+    "description": "Name longer than 100 characters (no maximum configured)",
+    "name": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "email": "boundary@contoso.com",
+    "company": "Boundary Corp",
+    "employees": "999",
+    "expectValid": true,
+    "reason": "Accepted: the published form enforces only a 3-character minimum, no maximum (DEF-012)"
+  },
+  {
+    "id": "DD-06",
+    "description": "E-mail without an @ sign",
+    "name": "Sam Jones",
+    "email": "plainaddress",
+    "company": "Globex",
+    "employees": "55",
+    "expectValid": false,
+    "reason": "E-mail format rejected: no @ sign"
+  },
+  {
+    "id": "DD-07",
+    "description": "E-mail without a domain part",
+    "name": "Sam Jones",
+    "email": "no-domain@",
+    "company": "Globex",
+    "employees": "55",
+    "expectValid": false,
+    "reason": "E-mail format rejected: nothing after the @"
+  },
+  {
+    "id": "DD-08",
+    "description": "E-mail without a top level domain",
+    "name": "Sam Jones",
+    "email": "user@domain",
+    "company": "Globex",
+    "employees": "55",
+    "expectValid": false,
+    "reason": "E-mail format rejected: no dot in the domain"
+  },
+  {
+    "id": "DD-09",
+    "description": "Plus addressed e-mail (sub-addressing)",
+    "name": "Priya Raman",
+    "email": "priya.raman+capstone@sub.domain.co.uk",
+    "company": "Initech",
+    "employees": "12000",
+    "expectValid": true,
+    "reason": "Valid RFC style e-mail with a + tag and a multi-label domain"
+  },
+  {
+    "id": "DD-10",
+    "description": "Headcount of zero (no minimum configured)",
+    "name": "Omar Farouk",
+    "email": "omar@initech.com",
+    "company": "Initech",
+    "employees": "0",
+    "expectValid": true,
+    "reason": "Accepted: the number rule has no lower bound, so a company with 0 employees passes (DEF-013)"
+  },
+  {
+    "id": "DD-11",
+    "description": "Headcount entered as words",
+    "name": "Omar Farouk",
+    "email": "omar@initech.com",
+    "company": "Initech",
+    "employees": "twenty five",
+    "expectValid": false,
+    "reason": "Number field rejects non numeric input"
+  },
+  {
+    "id": "DD-12",
+    "description": "Headcount entered as a decimal (no integer restriction)",
+    "name": "Omar Farouk",
+    "email": "omar@initech.com",
+    "company": "Initech",
+    "employees": "25.5",
+    "expectValid": true,
+    "reason": "Accepted: the number rule allows decimals, so 25.5 employees passes (DEF-014)"
+  },
+  {
+    "id": "DD-13",
+    "description": "Empty company name",
+    "name": "Marta Silva",
+    "email": "marta@initech.com",
+    "company": "",
+    "employees": "7",
+    "expectValid": false,
+    "reason": "Company is a required field and cannot be blank"
+  },
+  {
+    "id": "DD-14",
+    "description": "Unicode respondent name (UTF-8 encoding check)",
+    "name": "Zo\u00eb M\u00fcller-O'Connor",
+    "email": "zoe.mueller@example.de",
+    "company": "M\u00fcller & S\u00f6hne GmbH",
+    "employees": "48",
+    "expectValid": true,
+    "reason": "Accents, an apostrophe and an ampersand must survive submission intact"
+  }
+]

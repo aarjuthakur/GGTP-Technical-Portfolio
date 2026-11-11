@@ -1,0 +1,14 @@
+/target/
+.classpath
+.project
+.settings/
+test-output/
+bin/
+*.log
+logs/
+*.jar
+!shopeasy-1.0.0.jar
+.DS_Store
+Thumbs.db
+.idea/
+*.iml

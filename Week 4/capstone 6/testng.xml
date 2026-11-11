@@ -1,0 +1,24 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="ShopEasy Test Suite" verbose="1">
+
+    <test name="UI Tests - Chrome">
+        <parameter name="browser" value="chrome"/>
+        <packages>
+            <package name="com.shopeasy.ui.tests"/>
+        </packages>
+    </test>
+
+    <test name="UI Tests - Firefox">
+        <parameter name="browser" value="firefox"/>
+        <packages>
+            <package name="com.shopeasy.ui.tests"/>
+        </packages>
+    </test>
+
+    <test name="API Tests">
+        <packages>
+            <package name="com.shopeasy.api.tests"/>
+        </packages>
+    </test>
+
+</suite>

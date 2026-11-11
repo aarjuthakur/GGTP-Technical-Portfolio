@@ -1,0 +1,158 @@
+{
+  "project": "ShopEasy Capstone 6",
+  "baseUrl": "http://localhost:8080",
+  "users": {
+    "primary": {
+      "email": "maya.test@example.com",
+      "password": "Valid#123"
+    },
+    "lockTest": {
+      "email": "lock.test@example.com",
+      "password": "Valid#123",
+      "invalidPasswords": ["WrongPass0", "WrongPass1", "WrongPass2", "WrongPass3", "WrongPass4"]
+    },
+    "register": {
+      "name": "Test User",
+      "emailPattern": "testuser{timestamp}@example.com",
+      "password": "Strong#Pass1"
+    },
+    "bvaRegister": {
+      "name": "BVA User",
+      "emailPattern": "bva16pw{timestamp}@example.com",
+      "password": "Abcdefgh12345678"
+    },
+    "apiRegister": {
+      "name": "API User",
+      "emailPattern": "apitest{timestamp}@example.com",
+      "password": "Strong#Pass1"
+    },
+    "cartApiUser": {
+      "name": "CartTestUser",
+      "emailPattern": "carttest{timestamp}@example.com",
+      "password": "Test#1234"
+    },
+    "checkoutApiUser": {
+      "name": "Checkout User",
+      "emailPattern": "checkout{timestamp}@example.com",
+      "password": "Test#1234"
+    },
+    "orderApiUser": {
+      "name": "OrderTestUser",
+      "emailPattern": "ordertest{timestamp}@example.com",
+      "password": "Test#1234"
+    },
+    "orderApiUser2": {
+      "name": "OrderUser2",
+      "emailPattern": "orderuser2_{timestamp}@example.com",
+      "password": "Test#1234"
+    }
+  },
+  "address": {
+    "primary": {
+      "name": "Maya Test",
+      "phone": "9876543210",
+      "street": "123 Main St",
+      "pincode": "560001"
+    },
+    "secondary": {
+      "name": "Test User",
+      "phone": "9876543210",
+      "street": "456 Other St",
+      "pincode": "560002"
+    }
+  },
+  "payment": {
+    "card": {
+      "number": "4111111111111111",
+      "expiry": "12/30",
+      "cvv": "123"
+    },
+    "upi": {
+      "id": "testuser@bank"
+    },
+    "cod": true
+  },
+  "products": {
+    "search": {
+      "exactName": "Running Shoes",
+      "caseTest": ["Shoes", "shoes"]
+    },
+    "freeShipping": {
+      "productId": "p7",
+      "name": "Cotton T-Shirt",
+      "price": 500,
+      "quantity": 4,
+      "total": 2000
+    },
+    "highValue": {
+      "productId": "p6",
+      "priceAbove": 5000
+    },
+    "checkout": {
+      "productId": "p1"
+    }
+  },
+  "coupons": {
+    "valid": "SAVE10"
+  },
+  "boundaries": {
+    "cartMaxQuantity": 10,
+    "invalidQuantity": 11,
+    "validPincode": "560001",
+    "invalidPincode": "40001",
+    "maxPasswordLength": 16
+  },
+  "security": {
+    "sqlInjection": "' OR 1=1 --",
+    "xssInjection": "<script>alert(1)</script>"
+  },
+  "viewports": {
+    "mobile": {
+      "width": 375,
+      "height": 812,
+      "device": "iPhone X"
+    }
+  },
+  "uiTestData": [
+    {"id": "TC-UI-001", "title": "Search by exact product name", "data": "search: 'Running Shoes'"},
+    {"id": "TC-UI-002", "title": "Search case-insensitive", "data": "search: 'Shoes' vs 'shoes'"},
+    {"id": "TC-UI-003", "title": "Cart badge visible after add", "data": "first product from homepage (dynamic)"},
+    {"id": "TC-UI-004", "title": "Quantity above 10 rejected", "data": "first product, quantity: 11"},
+    {"id": "TC-UI-005", "title": "Valid login", "data": "email: maya.test@example.com, password: Valid#123"},
+    {"id": "TC-UI-006", "title": "Account lock after 5 failures", "data": "email: lock.test@example.com, 5 wrong passwords then Valid#123"},
+    {"id": "TC-UI-007", "title": "SQL injection blocked", "data": "email: ' OR 1=1 --, password: anything"},
+    {"id": "TC-UI-008", "title": "Register new user", "data": "name: Test User, email: testuser{ts}@example.com, password: Strong#Pass1"},
+    {"id": "TC-UI-009", "title": "16-char password boundary", "data": "name: BVA User, email: bva16pw{ts}@example.com, password: Abcdefgh12345678"},
+    {"id": "TC-UI-010", "title": "Coupon stacks on reapply", "data": "coupon: SAVE10 applied twice, address: 123 Main St, 560001"},
+    {"id": "TC-UI-011", "title": "Free shipping at Rs 2000", "data": "product: p7 Cotton T-Shirt Rs 500, qty: 4, total: Rs 2000"},
+    {"id": "TC-UI-012", "title": "Cancel shipped order fails", "data": "address: 123 Main St, payment: COD, order advanced 2x to shipped"},
+    {"id": "TC-UI-013", "title": "UPI payment above Rs 5000", "data": "product: p6, UPI ID: testuser@bank, address: 123 Main St, 560001"},
+    {"id": "TC-UI-014", "title": "Gateway charge matches total", "data": "card: 4111111111111111, expiry: 12/30, CVV: 123"},
+    {"id": "TC-UI-015", "title": "Valid 6-digit pincode checkout", "data": "pincode: 560001, address: 123 Main St, payment: COD"},
+    {"id": "TC-UI-016", "title": "XSS in search safe", "data": "search: <script>alert(1)</script>"},
+    {"id": "TC-UI-017", "title": "5-digit pincode rejected", "data": "pincode: 40001 (5-digit invalid)"},
+    {"id": "TC-UI-018", "title": "Mobile viewport 375px", "data": "viewport: 375x812 (iPhone X)"},
+    {"id": "TC-UI-019", "title": "Pay button overlap at 375px", "data": "viewport: 375x812, address: 123 Main St, 560001"},
+    {"id": "TC-UI-020", "title": "Terms link underline on hover", "data": "hover on terms-link element"}
+  ],
+  "apiTestData": [
+    {"id": "TC-API-001", "title": "Login valid credentials", "data": "email: maya.test@example.com, password: Valid#123"},
+    {"id": "TC-API-002", "title": "Register new user", "data": "name: API User, email: apitest{ts}@example.com, password: Strong#Pass1"},
+    {"id": "TC-API-003", "title": "Get user without login", "data": "empty session (no credentials)"},
+    {"id": "TC-API-004", "title": "Get all products", "data": "no input, expects 12 products"},
+    {"id": "TC-API-005", "title": "Search products by name", "data": "search: 'Running Shoes'"},
+    {"id": "TC-API-006", "title": "Get product by ID", "data": "productId: first product (dynamic)"},
+    {"id": "TC-API-007", "title": "Add to cart", "data": "productId: first product, qty: 1"},
+    {"id": "TC-API-008", "title": "Get cart after add", "data": "productId: first product, qty: 2"},
+    {"id": "TC-API-009", "title": "Update cart quantity", "data": "productId: first product, qty: 1 -> 5"},
+    {"id": "TC-API-010", "title": "Remove from cart", "data": "productId: first product, qty: 1"},
+    {"id": "TC-API-011", "title": "Apply coupon SAVE10", "data": "productId: p1, coupon: SAVE10"},
+    {"id": "TC-API-012", "title": "Place order with card", "data": "productId: p1, card: 4111111111111111, address: 123 St, 560001"},
+    {"id": "TC-API-013", "title": "Place order COD", "data": "productId: p1, address: 123 St, 560001, shipMethod: standard"},
+    {"id": "TC-API-014", "title": "Place order and get list", "data": "productId: first product, address: 123 Test St, 560001"},
+    {"id": "TC-API-015", "title": "Cancel order", "data": "cancel order by ID"},
+    {"id": "TC-API-016", "title": "Return delivered order", "data": "order advanced 3x to delivered, returnEligible: true"},
+    {"id": "TC-API-017", "title": "Orders without login", "data": "empty session (no auth)"},
+    {"id": "TC-API-018", "title": "Orders filtered by user", "data": "user1 + user2, separate addresses, verify isolation"}
+  ]
+}

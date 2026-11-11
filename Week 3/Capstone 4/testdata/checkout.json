@@ -1,0 +1,18 @@
+[
+  {
+    "firstName": "Test",
+    "lastName": "User",
+    "company": "Perficient",
+    "address": "123 Test Street",
+    "country": "United States",
+    "state": "Illinois",
+    "city": "Chicago",
+    "zipcode": "60601",
+    "mobileNumber": "5551234567",
+    "cardName": "Test User",
+    "cardNumber": "4532123456789010",
+    "cardCvc": "123",
+    "cardExpiryMonth": "12",
+    "cardExpiryYear": "2027"
+  }
+]
